@@ -1,14 +1,29 @@
-# Welcome to your CDK TypeScript project
+# Slack App Starter with AWS CDK
 
-This is a blank project for CDK development with TypeScript.
+This is not Official
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## 始め方
 
-## Useful commands
+1. Slack　Appを作成する→[Slack App](https://api.slack.com/apps)
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+2. bot tokenとsigning secretを発行し `.env`ファイルを作成
+
+```txt
+SLACK_BOT_TOKEN=xoxb-000000000000-000000000000-000000000000000000000000
+SLACK_SIGNING_SECRET=aaaaaaaaaaaaaaaaaaaaaaaa
+```
+
+3. AWS CDKでAWSのリソースをデプロイする
+
+```console
+npm i
+
+# bootstrapを作成してない場合は作成
+npx cdk bootstrap
+
+npx cdk deploy SlackAppStarterWithAwsCdkStack
+```
+
+4. API GatewayのEndpoint URLをSlack AppのEvent Subscriptionに設定
+
+
